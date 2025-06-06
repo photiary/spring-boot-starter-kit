@@ -9,8 +9,14 @@ This file contains guidelines for Junie to follow when working on this Spring Bo
   stable version).
 - **Build Tool:** Use Gradle as the build tool. Ensure the `build.gradle` usees the latest stable
   Spring Boot package.
+- **Unit test:** Use junit
+- **Log:** Use SLF4J as the logging API
 
 ## Project Structure
+
+* **MSA Architecture**
+
+* **Domain Driven Design**
 
 * **Packaging:** Strongly prefer **package-by-feature** structure over package-by-layer.
 
@@ -32,7 +38,8 @@ This file contains guidelines for Junie to follow when working on this Spring Bo
       │     ├─ {Domain}Request.java
       │     └─ {Domain}Response.java
       └─ common                           # Optional: Truly shared utilities/conifg
-         └─ exception
+         ├─ exception
+         └─ config 
       ```
 
       **AVOID THIS (Package-by-Layer):**
@@ -55,3 +62,14 @@ This file contains guidelines for Junie to follow when working on this Spring Bo
 ## Java Language Features
 
 * **Data Carriers:** Use **Lombok** for immutable data transfer objects (DTOs). value objects (VOs).
+
+## Database
+
+* **Table naming rules:** Use **Snake case** and prefix it with 'tb_'.
+
+## Unit Test
+
+## Logs
+
+* Log output as JSON format.
+* **Log content:** timestamp, log level, transaction ID(Trace ID), user ID
