@@ -30,6 +30,8 @@ public class SecurityConfig {
                 authorize
                     .requestMatchers("/api/demo/**")
                     .permitAll() // Allow access to /api/demo/** without authentication
+                    .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**")
+                    .permitAll() // Allow access to Swagger UI and OpenAPI endpoints
                     .anyRequest()
                     .authenticated() // Require authentication for all other endpoints
             )
