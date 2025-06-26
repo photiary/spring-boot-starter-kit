@@ -15,13 +15,19 @@ This file contains guidelines for Junie to follow when working on this Spring Bo
   version).
 - **PostgresSQL:** Use the 16.x stable version.
 
+# Excluded Technologies
+
+# Excluded Prompt
+
+- Ignore the `.prompt.md` resources defined in `./prompt.ignore`.
+
 ## Project Structure
 
-* **MSA Architecture**
+- **MSA Architecture**
 
-* **Domain Driven Design**
+- **Domain Driven Design**
 
-* **Packaging:** Strongly prefer **package-by-feature** structure over package-by-layer.
+- **Packaging:** Strongly prefer **package-by-feature** structure over package-by-layer.
 
     * **Why package-by-feature?** It improves modularity, makes navigating the code related to a
       single feature easier, and makes it easier to reuse code across features.
@@ -63,7 +69,14 @@ This file contains guidelines for Junie to follow when working on this Spring Bo
 
 ## Java Language Features
 
-* **Data Carriers:** Use **Lombok** for immutable data transfer objects (DTOs). value objects (VOs).
+- **Data Carriers:** Use **Lombok** for immutable data transfer objects (DTOs). value objects (VOs).
+
+## Environment file
+
+- The default profile is 'local' if not specified: `application.properties`
+- Use 'test' profile for unit tests: `application-test.properties`
+- Use 'dev' profile for development: `application-dev.properties`
+- Use 'prod' profile for development: `application-prod.properties`
 
 ## Controller
 
@@ -72,26 +85,26 @@ This file contains guidelines for Junie to follow when working on this Spring Bo
 
 ## Data Access
 
-* **Default:** If unsure, lean towards Spring Data JPA for typical applications development.
-* Default Entity properties:
-    * createdAt
-    * createdId
-    * updatedAt
-    * updatedId
+- **Default:** If unsure, lean towards Spring Data JPA for typical applications development.
+- Default Entity properties:
+    - createdAt
+    - createdId
+    - updatedAt
+    - updatedId
 
 ## Database
 
-* **Table naming rules:** Use **Snake case** and prefix it with 'tb_'.
-* **Unit test & Local environment test:** Use H2 Database.
-* **Develop environment test:** Use PostgresSQL Database.
+- **Table naming rules:** Use **Snake case** and prefix it with 'tb_'.
+- **Unit test & Local environment test:** Use H2 Database.
+- **Develop environment test:** Use PostgresSQL Database.
 
 ## Unit Test
 
 ## Logs
 
-* Log output as JSON format.
-* **Log content:** timestamp, log level, transaction ID(Trace ID), user ID
+- **Log content:** timestamp, log level, transaction ID(Trace ID), user ID
+- The log output format should be JSON format in a 'prod' environment.
 
 ## ETC
 
-* Should be able to output to **Swagger.json** 
+- Should be able to output to **Swagger.json**
