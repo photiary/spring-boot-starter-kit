@@ -16,8 +16,8 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 
   /**
-   * Configures the security filter chain. Allows access to /api/demo/** without authentication.
-   * Requires authentication for all other endpoints.
+   * Configures the security filter chain. Allows access to /api/** without authentication. Requires
+   * authentication for all other endpoints.
    *
    * @param http the HttpSecurity to configure
    * @return the configured SecurityFilterChain
@@ -28,8 +28,8 @@ public class SecurityConfig {
     http.authorizeHttpRequests(
             authorize ->
                 authorize
-                    .requestMatchers("/api/demo/**")
-                    .permitAll() // Allow access to /api/demo/** without authentication
+                    .requestMatchers("/api/**")
+                    .permitAll() // Allow access to /api/** without authentication
                     .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**")
                     .permitAll() // Allow access to Swagger UI and OpenAPI endpoints
                     .anyRequest()
